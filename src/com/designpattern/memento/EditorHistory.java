@@ -6,7 +6,7 @@ import java.util.List;
 public class EditorHistory {
 	private List<EditorState> states;
 	
-	public void EditorState() {
+	public EditorHistory() {
 		states = new LinkedList<>();
 	}
 	
