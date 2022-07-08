@@ -15,6 +15,12 @@ public class EditorHistory {
 	}
 	
 	public EditorState pop() {
-		return states.remove(states.size() - 1);
+		int lastStateIndex = states.size() - 1;
+		
+		if (lastStateIndex < 0) {
+			return null;
+		}
+		
+		return states.remove(lastStateIndex);
 	}
 }

@@ -15,7 +15,13 @@ public class Main {
 		editor.setContent("c");
 		history.push(editor.createState());
 		
-		System.out.println(history);
+		EditorState lastState1 = history.pop();
+		EditorState lastState2 = history.pop();
+		EditorState lastState3 = history.pop();
+		EditorState lastState4 = history.pop();
+		editor.restore(lastState4);
+		
+		System.out.println(editor.getContent());
 	}
 
 }
