@@ -19,7 +19,7 @@ public class Main {
 		EditorState lastState2 = history.pop();
 		EditorState lastState3 = history.pop();
 		EditorState lastState4 = history.pop();
-		editor.restore(lastState4);
+		editor.restore(lastState3);
 		
 		System.out.println(editor.getContent());
 	}
