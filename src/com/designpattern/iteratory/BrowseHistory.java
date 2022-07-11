@@ -4,18 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BrowseHistory {
-	private List<String> urls;
+	private String[] urls;
+	private int size;
 
 	public BrowseHistory() {
-		this.urls = new ArrayList<>();
+		this.urls = new String[10];
 	}
 
 	public void push(String url) {
-		urls.add(url);
+		if (size >= 10) {
+			throw new ArrayIndexOutOfBoundsException();
+		}
+		
+		urls[size++] = url;
 	}
 	
 	public String pop() {
-		return urls.remove(urls.size() - 1);
+		if (size == 0) {
+			throw new ArrayIndexOutOfBoundsException();
+		}
+		
+		return urls[size-- - 1] = null;
 	}
 	
 	public Iterator<String> createIterator() {
@@ -32,7 +41,7 @@ public class BrowseHistory {
 
 		@Override
 		public String current() {
-			return history.urls.get(index);
+			return history.urls[index];
 		}
 
 		@Override
@@ -42,7 +51,7 @@ public class BrowseHistory {
 
 		@Override
 		public boolean hasNext() {
-			return index < history.urls.size();
+			return index < history.size;
 		}
 		
 	}
