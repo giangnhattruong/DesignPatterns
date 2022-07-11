@@ -7,6 +7,7 @@ public class Main {
 		history.push("a");
 		history.push("b");
 		history.push("c");
+		history.pop();
 		
 		Iterator<String> iterator = history.createIterator();
 		

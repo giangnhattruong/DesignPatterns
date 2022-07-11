@@ -24,18 +24,18 @@ public class BrowseHistory {
 			throw new ArrayIndexOutOfBoundsException();
 		}
 		
-		return urls[size-- - 1] = null;
+		return urls[--size] = null;
 	}
 	
 	public Iterator<String> createIterator() {
-		return new ListIterator(this);
+		return new ArrayIterator(this);
 	}
  	
-	public class ListIterator implements Iterator<String> {
+	public class ArrayIterator implements Iterator<String> {
 		private BrowseHistory history;
 		private int index;
 		
-		public ListIterator(BrowseHistory history) {
+		public ArrayIterator(BrowseHistory history) {
 			this.history = history;
 		}
 
